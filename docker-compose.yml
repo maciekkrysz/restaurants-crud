@@ -1,0 +1,29 @@
+version: '3.8'
+services: 
+    laravel:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        env_file:
+        - .env
+        command: 'php artisan serve --host=0.0.0.0'
+        volumes:
+            - .:/app
+        ports:
+            - ${APP_PORT}:${APP_PORT}
+  
+    db:
+        platform: linux/x86_64
+        image: mysql:8.0
+        env_file:
+        - .env
+        environment: 
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_ROOT: ${DB_ROOT}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+        volumes:
+            - ./storage/dbdata:/var/lib/mysql
+        ports:
+            - ${DB_PORT}:${DB_PORT}

@@ -25,3 +25,8 @@ restaurants, clients, orders
 
 ### In case of slowly docker container (Windows)
 Disable "Use the WSL 2 based engine" option in Docker Desktop
+
+## Publish l5-swagger
+`php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"`
+`php artisan l5-swagger:generate`
+documentation available on /api/documentation

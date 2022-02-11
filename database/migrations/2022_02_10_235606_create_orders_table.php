@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->int('idClient');
-            $table->foreign('idClient')->references('id')->on('clients')->onDelete('cascade');
+            $table->unsignedBigInteger('client_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->boolean('paid');
             $table->boolean('confirmed');
             $table->boolean('sent');

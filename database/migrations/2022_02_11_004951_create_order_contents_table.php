@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('order_contents', function (Blueprint $table) {
             $table->id();
-            $table->int('idOrder');
+            $table->unsignedBigInteger('idOrder');
             $table->foreign('idOrder')->references('id')->on('orders')->onDelete('cascade');
-            $table->int('idMenu');
+            $table->unsignedBigInteger('idMenu');
             $table->foreign('idMenu')->references('id')->on('menus')->onDelete('cascade');
             $table->timestamps();
         });

@@ -6,7 +6,7 @@ services:
             dockerfile: Dockerfile
         env_file:
         - .env
-        command: 'php artisan serve --host=0.0.0.0'
+        # command: 'php artisan serve --host=0.0.0.0'
         volumes:
             - .:/app
         ports:

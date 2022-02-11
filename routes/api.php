@@ -19,24 +19,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 // RESTAURANTS
-Route::get('/restaurants', [RestaurantController::class, 'index']);
-
-Route::post('/restaurants', [RestaurantController::class, 'store']);
+Route::resource('/restaurants', RestaurantController::class);
 
 // MENUS
-Route::get('/menus', [MenuController::class, 'index']);
-
-Route::post('/menus', [MenuController::class, 'store']);
+Route::resource('/menus', MenuController::class);
 
 // ORDERS
-Route::get('/orders', [OrderController::class, 'index']);
-
-Route::post('/orders', [OrderController::class, 'store']);
+Route::resource('/orders', OrderController::class);
 
 // CLIENTS
-Route::get('/clients', [ClientController::class, 'index']);
-
-Route::post('/clients', [ClientController::class, 'store']);
+Route::resource('/clients', ClientController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

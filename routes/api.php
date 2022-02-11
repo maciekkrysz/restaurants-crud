@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +17,26 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// RESTAURANTS
+Route::get('/restaurants', [RestaurantController::class, 'index']);
+
+Route::post('/restaurants', [RestaurantController::class, 'store']);
+
+// MENUS
+Route::get('/menus', [MenuController::class, 'index']);
+
+Route::post('/menus', [MenuController::class, 'store']);
+
+// ORDERS
+Route::get('/orders', [OrderController::class, 'index']);
+
+Route::post('/orders', [OrderController::class, 'store']);
+
+// CLIENTS
+Route::get('/clients', [ClientController::class, 'index']);
+
+Route::post('/clients', [ClientController::class, 'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

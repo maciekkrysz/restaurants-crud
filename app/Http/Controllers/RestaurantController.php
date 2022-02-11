@@ -48,7 +48,9 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $restaurant = Restaurant::find($id);
+        $restaurant->update($request->all());
+        return $restaurant;
     }
 
     /**
@@ -59,6 +61,6 @@ class RestaurantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Restaurant::destroy($id);
     }
 }

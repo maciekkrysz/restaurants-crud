@@ -48,7 +48,9 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $menu = Menu::find($id);
+        $menu->update($request->all());
+        return $menu;
     }
 
     /**
@@ -59,6 +61,6 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Menu::destroy($id);
     }
 }

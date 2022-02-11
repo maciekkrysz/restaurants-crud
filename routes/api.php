@@ -26,6 +26,9 @@ Route::resource('/menus', MenuController::class);
 
 // ORDERS
 Route::resource('/orders', OrderController::class);
+Route::post('/orders/{id}/{content}/{count}', [OrderController::class, 'addContent']);
+Route::patch('/orders/{id}/{content}/{count}', [OrderController::class, 'updateContent']);
+Route::delete('/orders/{id}/{content}', [OrderController::class, 'deleteContent']);
 
 // CLIENTS
 Route::resource('/clients', ClientController::class);

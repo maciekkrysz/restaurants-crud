@@ -11,6 +11,7 @@ class OrderContent extends Model
 
     protected $fillable = [
         'idOrder',
-        'idMenu'
+        'idMenu',
+        'count'
     ];
 }

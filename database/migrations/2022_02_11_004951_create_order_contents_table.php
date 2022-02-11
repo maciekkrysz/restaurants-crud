@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('idOrder')->references('id')->on('orders')->onDelete('cascade');
             $table->unsignedBigInteger('idMenu');
             $table->foreign('idMenu')->references('id')->on('menus')->onDelete('cascade');
+            $table->integer('count')->unsigned();
             $table->timestamps();
         });
     }

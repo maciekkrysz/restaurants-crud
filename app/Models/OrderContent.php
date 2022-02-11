@@ -10,8 +10,8 @@ class OrderContent extends Model
     use HasFactory;
 
     protected $fillable = [
-        'idOrder',
-        'idMenu',
+        'order_id',
+        'menu_id',
         'count'
     ];
 }

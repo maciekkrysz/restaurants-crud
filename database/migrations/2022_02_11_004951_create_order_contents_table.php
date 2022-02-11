@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('order_contents', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('idOrder');
-            $table->foreign('idOrder')->references('id')->on('orders')->onDelete('cascade');
-            $table->unsignedBigInteger('idMenu');
-            $table->foreign('idMenu')->references('id')->on('menus')->onDelete('cascade');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            $table->unsignedBigInteger('menu_id');
+            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
             $table->integer('count')->unsigned();
             $table->timestamps();
         });

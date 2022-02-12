@@ -15,4 +15,9 @@ class Menu extends Model
         'description',
         'price'
     ];
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class, 'restaurant_id');
+    }
 }

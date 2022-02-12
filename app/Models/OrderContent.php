@@ -14,4 +14,9 @@ class OrderContent extends Model
         'menu_id',
         'count'
     ];
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class, 'menu_id');
+    }
 }

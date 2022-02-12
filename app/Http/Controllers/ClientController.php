@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use App\Http\Resources\ClientResource;
 
 /**
  * 
@@ -154,7 +155,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return Client::all();
+        return ClientResource::collection(Client::all());
     }
 
     /**
@@ -177,7 +178,7 @@ class ClientController extends Controller
     public function show($id)
     {
         $client = Client::find($id);
-        return $client;
+        return (new ClientResource($client))->response();
     }
 
     /**

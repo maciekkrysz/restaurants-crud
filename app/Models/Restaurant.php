@@ -16,4 +16,9 @@ class Restaurant extends Model
         'address1',
         'address2'
     ];
+
+    public function menus()
+    {
+        return $this->hasMany(Menu::class, 'restaurant_id');
+    }
 }

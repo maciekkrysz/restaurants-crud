@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Restaurant;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
+use App\Http\Resources\RestaurantResource;
 
 class RestaurantController extends Controller
 {
@@ -15,7 +16,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        return Restaurant::all();
+        // $restaurants = Restaurant::with(['menus.restaurant_id']);
+        return RestaurantResource::collection(Restaurant::all());
     }
 
     /**
@@ -38,7 +40,7 @@ class RestaurantController extends Controller
     public function show($id)
     {
         $restaurant = Restaurant::find($id);
-        return $restaurant;
+        return (new RestaurantResource($restaurant))->response();
     }
 
     /**

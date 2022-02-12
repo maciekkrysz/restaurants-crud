@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Http\Requests\StoreMenuRequest;
 use App\Http\Requests\UpdateMenuRequest;
+use App\Http\Resources\MenuResource;
 
 class MenuController extends Controller
 {
@@ -15,7 +16,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return Menu::all();
+        return MenuResource::collection(Menu::all());
     }
 
     /**
@@ -38,7 +39,7 @@ class MenuController extends Controller
     public function show($id)
     {
         $menu = Menu::find($id);
-        return $menu;
+        return (new MenuResource($menu))->response();
     }
 
     /**

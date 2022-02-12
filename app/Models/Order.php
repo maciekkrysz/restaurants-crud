@@ -18,6 +18,10 @@ class Order extends Model
         'delivered'
     ];
 
+    public function client(){
+        return $this->belongsTo(Client::class);
+     }
+
     public function content(){
         return $this->hasMany(OrderContent::class);
      }

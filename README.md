@@ -20,7 +20,11 @@ restaurants, clients, orders
 `docker-compose up --build`
 5. Do migrations:
 `docker-compose exec laravel php artisan migrate`
-6. Run server:
+6. Seed database:
+`docker-compose exec laravel php artisan db:seed`
+   or reseed:
+`docker-compose exec laravel php artisan migrate:fresh --seed`
+7. Run server:
 `docker-compose exec laravel php artisan serve --host=0.0.0.0`
 
 ### In case of slowly docker container (Windows)

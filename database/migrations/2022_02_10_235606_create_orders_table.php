@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->boolean('paid');
-            $table->boolean('confirmed');
-            $table->boolean('sent');
-            $table->boolean('delivered');
+            $table->boolean('paid')->default(0);
+            $table->boolean('confirmed')->default(0);
+            $table->boolean('sent')->default(0);
+            $table->boolean('delivered')->default(0);
             $table->timestamps();
         });
     }

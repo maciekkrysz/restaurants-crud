@@ -21,7 +21,7 @@ restaurants, clients, orders
 5. Do migrations:
 `docker-compose exec laravel php artisan migrate`
 6. Seed database:
-`docker-compose exec laravel php artisan db:seed`
+`docker-compose exec laravel php artisan db:seed`  
    or reseed:
 `docker-compose exec laravel php artisan migrate:fresh --seed`
 7. Run server:
@@ -31,6 +31,6 @@ restaurants, clients, orders
 Disable "Use the WSL 2 based engine" option in Docker Desktop
 
 ## Publish l5-swagger
-`php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"`
-`php artisan l5-swagger:generate`
+`php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"`  
+`php artisan l5-swagger:generate`  
 documentation available on /api/documentation
